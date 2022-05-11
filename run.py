@@ -5,8 +5,8 @@ alfabeth = "ABCDEFGJKLMNOPRSTUVWXYZ"
 grid = []
 def alfabeth_asinger():
     for z in alfabeth:
-        print(alfabeth[])
-    return z
+        letter = alfabeth[1:2]
+    return letter
 
 for x in range(int(grid_size)):
     x =  [
