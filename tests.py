@@ -1,9 +1,10 @@
+grid_size = input("How big would you like the grid to be?")
+board = []
 
-alfabeth = "ABCDEFGJKLMNOPRSTUVWXYZ"
-def alfabeth_asinger():
-    for z in range(len(alfabeth)):
-        print(alfabeth[z])
-return z       
-alfabeth_asinger()
+for i in range(0,5):
+    board.append(["O"] *int(grid_size))
+def print_board(board):
+    for x in board
+        print x
 
-
+print_board(board)
