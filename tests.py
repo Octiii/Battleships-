@@ -4,7 +4,7 @@ import random
 grid_size = input("How big would you like the grid to be?")
 board = []
 
-for i in range(0,5):
+for i in range(int (grid_size)):
     board.append(["O"] *int (grid_size))
 def print_board(board):
     for x in board:
@@ -21,11 +21,15 @@ def random_col(board):
 ship_row = random_row(board)
 ship_col = random_col(board)
 
-guess_row = int(input("Guess Row: "))
-guess_col = int(input("Guess Column: "))
+guess_row = int(input("Guess Row: "))-1
+guess_col = int(input("Guess Column: "))-1
 
 print(ship_row)
 print(ship_col)
 
 if guess_row == ship_row and guess_col == ship_col:
     print("Congratulations you sank my battle ship!")
+else:
+    print("No luck!")
+    board[guess_row][guess_col]="X"
+    print_board(board)
