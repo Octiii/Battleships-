@@ -30,6 +30,9 @@ print(ship_col)
 if guess_row == ship_row and guess_col == ship_col:
     print("Congratulations you sank my battle ship!")
 else:
-    print("No luck!")
-    board[guess_row][guess_col]="X"
-    print_board(board)
+    if guess_row > int(grid_size)-1 or guess_col > int(grid_size)-1:
+        print("What are you aming at?")
+    else:
+        print("No luck!")
+        board[guess_row][guess_col]="X"
+        print_board(board)
