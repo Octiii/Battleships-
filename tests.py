@@ -20,18 +20,18 @@ def random_col(board):
 
 ship_row = random_row(board)
 ship_col = random_col(board)
+print(ship_row)
+print(ship_col)
 
 for turn in range(4):
     print("Turn", turn+1)
 
-    guess_row = int(input("Guess Row: "))-1
-    guess_col = int(input("Guess Column: "))-1
-
-    print(ship_row)
-    print(ship_col)
+    guess_row = int(input("Guess Row: "))
+    guess_col = int(input("Guess Column: "))
 
     if guess_row == ship_row and guess_col == ship_col:
         print("Congratulations you sank my battle ship!")
+        break
     else:
         if guess_row > int(grid_size)-1 or guess_col > int(grid_size)-1:
             print("What are you aming at?")
@@ -40,4 +40,6 @@ for turn in range(4):
         else:
             print("No luck!")
             board[guess_row][guess_col]="X"
-            print_board(board)
+            if turn == 3:
+                print("Game Over.")
+        print_board(board)
