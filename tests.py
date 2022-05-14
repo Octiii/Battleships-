@@ -1,12 +1,11 @@
-"""
-from random import randit
-"""
+
+import random
 
 grid_size = input("How big would you like the grid to be?")
 board = []
 
 for i in range(0,5):
-    board.append(["O"] *int(grid_size))
+    board.append(["O"] *int (grid_size))
 def print_board(board):
     for x in board:
         print(" ". join(x))
@@ -14,12 +13,19 @@ def print_board(board):
 print_board(board)
 
 def random_row(board):
-    return randint(0,len(board)-1)
+    return random.randint(0,len(board)-1)
 
 def random_col(board):
-    return randint(0,len(board)-1)
+    return random.randint(0,len(board)-1)
+
 ship_row = random_row(board)
 ship_col = random_col(board)
 
 guess_row = int(input("Guess Row: "))
 guess_col = int(input("Guess Column: "))
+
+print(ship_row)
+print(ship_col)
+
+if guess_row == ship_row and guess_col == ship_col:
+    print("Congratulations you sank my battle ship!")
