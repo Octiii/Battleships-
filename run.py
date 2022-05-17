@@ -69,4 +69,16 @@ def user_guess():
     row = int(input("Guess Row "))-1
     col = int(input("Guess Collumn "))-1
     return (row, col)
-x = user_guess(); x
+
+def update_board( guess, board, ship, guesses):
+    if guess in guesses:
+        print("You already gussed that.")
+        return board
+    guesses.append(guess)
+    if guess in ship:
+        print("You hit my battle ship!")
+        board[guess[0]][guess[1]] ="X"
+        ship.remove(guess)
+        return board
+    print("Miss!")
+    return board
