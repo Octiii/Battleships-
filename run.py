@@ -31,8 +31,10 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
    wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 """
 )
-grid_size = int(input("How big would you like the grid to be?"))
-
+try:
+    grid_size = int(input("How big would you like the grid to be?"))
+except ValueError:
+    grid_size = int(input("Please input numbers!"))
 def build_board(size):
     return[["O" for x in range(size)] for x in range(size)]
 
@@ -71,6 +73,7 @@ def user_guess():
     col = int(input("Guess Collumn "))-1
     return (row, col)
 
+
 def update_board( guess, board, ship, guesses):
     if guess in guesses:
         print("You already gussed that.")
@@ -81,9 +84,13 @@ def update_board( guess, board, ship, guesses):
         board[guess[0]][guess[1]] ="X"
         ship.remove(guess)
         return board
-    board[guess[0]][guess[1]] ="*"
-    print("Miss!")
-    return board
+    try:
+        board[guess[0]][guess[1]] ="*"
+        print("Miss!")
+        return board
+    except IndexError:
+        print("Ups, that is out of the ocean!")
+        return board
 guesses = []
 our_guess = user_guess()
 board = update_board(our_guess, board, ship, guesses)
