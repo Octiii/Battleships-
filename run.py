@@ -42,12 +42,14 @@ while True:
 def build_board(size):
     return[["O" for x in range(size)] for x in range(size)]
 
+
 def print_board(board):
     for x in board:
         print(*x)
 
 board = build_board(grid_size)
 print_board(board)
+
 
 def build_ship(size):
     lenght_ship = random.randint(2, size)
@@ -65,12 +67,13 @@ def build_ship(size):
     else:
         col_ship = [random.randint(0, size - 1)] * lenght_ship
         row = random.randint(0, size - lenght_ship)
-        row_ship = list(range(row,row + lenght_ship))
-        coords =tuple(zip(row_ship, col_ship))
+        row_ship = list(range(row, row + lenght_ship))
+        coords = tuple(zip(row_ship, col_ship))
     print(coords)
     return list(coords)
 
-ship = build_ship(grid_size); ship
+ship = build_ship(grid_size)
+
 
 def user_guess():
     while True:
@@ -82,18 +85,19 @@ def user_guess():
         except ValueError:
             print("Numbers Please!")
 
-def update_board( guess, board, ship, guesses):
+
+def update_board(guess, board, ship, guesses):
     if guess in guesses:
         print("You already gussed that.")
         return board
     guesses.append(guess)
     if guess in ship:
         print("You hit my battle ship!")
-        board[guess[0]][guess[1]] ="X"
+        board[guess[0]][guess[1]] = "X"
         ship.remove(guess)
         return board
     try:
-        board[guess[0]][guess[1]] ="*"
+        board[guess[0]][guess[1]] = "*"
         print("Miss!")
         return board
     except IndexError:
@@ -104,11 +108,12 @@ our_guess = user_guess()
 board = update_board(our_guess, board, ship, guesses)
 print_board(board)
 
+
 def main():
     board = build_board(grid_size)
     guesses = []
     while len(ship) > 0:
-        board = update_board(user_guess(),board, ship, guesses)
+        board = update_board(user_guess(), board, ship, guesses)
         print_board(board)
     print("You sunk my battle ship!")
     return
