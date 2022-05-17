@@ -31,10 +31,14 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
    wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 """
 )
-try:
-    grid_size = int(input("How big would you like the grid to be?"))
-except ValueError:
-    grid_size = int(input("Please input numbers!"))
+while True:
+    try:
+        grid_size = int(input("How big would you like the grid to be?"))
+        break
+    except ValueError:
+        print("Numbers please!")
+
+
 def build_board(size):
     return[["O" for x in range(size)] for x in range(size)]
 
@@ -69,9 +73,12 @@ def build_ship(size):
 ship = build_ship(grid_size); ship
 
 def user_guess():
-    row = int(input("Guess Row "))-1
-    col = int(input("Guess Collumn "))-1
-    return (row, col)
+    try:
+        row = int(input("Guess Row "))-1
+        col = int(input("Guess Collumn "))-1
+        return (row, col)
+    except ValueError:
+        print("Numbers Please!")
 
 
 def update_board( guess, board, ship, guesses):
