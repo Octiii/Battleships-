@@ -42,3 +42,25 @@ def print_board(board):
 
 board = build_board(grid_size)
 print_board(board)
+
+def build_ship(size):
+    lenght_ship = random.randint(2, size)
+    orientation = random.randint(0, 1)
+
+    if orientation == 0:
+
+        row_ship = [random.randint(0, size - 1)] * lenght_ship
+
+        col = random.randint(0, size - lenght_ship)
+
+        col_ship = list(range(col, col + lenght_ship))
+
+        coords = tuple(zip(row_ship, col_ship))
+    else:
+        col_ship = [random.randint(0, size - 1)] * lenght_ship
+        row = random.randint(0, size - lenght_ship)
+        row_ship = list(range(row,row + lenght_ship))
+        coords =tuple(zip(row_ship, col_ship))
+    print(coords)
+    return list(coords)
+ship = build_ship(grid_size)
