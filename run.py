@@ -64,3 +64,9 @@ def build_ship(size):
     print(coords)
     return list(coords)
 ship = build_ship(grid_size)
+
+def user_guess():
+    row = int(input("Guess Row "))-1
+    col = int(input("Guess Collumn "))-1
+    return (row, col)
+x = user_guess(); x
