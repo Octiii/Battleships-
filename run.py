@@ -87,3 +87,14 @@ guesses = []
 our_guess = user_guess()
 board = update_board(our_guess, board, ship, guesses)
 print_board(board)
+
+def main():
+    board = build_board(grid_size)
+    ship = build_ship(grid_size)
+    guesses = []
+    while len(ship) > 0:
+        board = update_board(user_guess(),board, ship, guesses)
+        print_board(board)
+    print("You sunk my battle ship!")
+    return
+main()
