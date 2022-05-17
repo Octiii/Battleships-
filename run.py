@@ -69,7 +69,6 @@ def build_ship(size):
         row = random.randint(0, size - lenght_ship)
         row_ship = list(range(row, row + lenght_ship))
         coords = tuple(zip(row_ship, col_ship))
-    print(coords)
     return list(coords)
 
 ship = build_ship(grid_size)
