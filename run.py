@@ -80,5 +80,10 @@ def update_board( guess, board, ship, guesses):
         board[guess[0]][guess[1]] ="X"
         ship.remove(guess)
         return board
+    board[guess[0]][guess[1]] ="*"
     print("Miss!")
     return board
+guesses = []
+our_guess = user_guess()
+board = update_board(our_guess, board, ship, guesses)
+print_board(board)
