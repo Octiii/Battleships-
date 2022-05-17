@@ -73,13 +73,14 @@ def build_ship(size):
 ship = build_ship(grid_size); ship
 
 def user_guess():
-    try:
-        row = int(input("Guess Row "))-1
-        col = int(input("Guess Collumn "))-1
-        return (row, col)
-    except ValueError:
-        print("Numbers Please!")
-
+    while True:
+        try:
+            row = int(input("Guess Row "))-1
+            col = int(input("Guess Collumn "))-1
+            return (row, col)
+            break
+        except ValueError:
+            print("Numbers Please!")
 
 def update_board( guess, board, ship, guesses):
     if guess in guesses:
