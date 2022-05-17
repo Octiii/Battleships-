@@ -63,7 +63,8 @@ def build_ship(size):
         coords =tuple(zip(row_ship, col_ship))
     print(coords)
     return list(coords)
-ship = build_ship(grid_size)
+
+ship = build_ship(grid_size); ship
 
 def user_guess():
     row = int(input("Guess Row "))-1
@@ -90,7 +91,6 @@ print_board(board)
 
 def main():
     board = build_board(grid_size)
-    ship = build_ship(grid_size)
     guesses = []
     while len(ship) > 0:
         board = update_board(user_guess(),board, ship, guesses)
