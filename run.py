@@ -31,6 +31,8 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
    wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 """
 )
+
+
 while True:
     try:
         grid_size = int(input("How big would you like the grid to be?"))
@@ -52,6 +54,11 @@ print_board(board)
 
 
 def build_ship(size):
+"""
+This function will create a ship of random size between 2
+and the size of the grid. Will also set it a randome orientation
+and a randome locations.
+"""
     lenght_ship = random.randint(2, size)
     orientation = random.randint(0, 1)
 
@@ -75,6 +82,11 @@ ship = build_ship(grid_size)
 
 
 def user_guess():
+"""
+Takes inputs from user, converts them to an interger, substracts one
+as to account for 0 indexing. Also cheks if numbers have been enterd
+asks again if not.
+"""
     while True:
         try:
             row = int(input("Guess Row "))-1
@@ -86,6 +98,11 @@ def user_guess():
 
 
 def update_board(guess, board, ship, guesses):
+"""
+Definition updates the board based on the users guess and cheks wether:
+A ship is hit, a guess is a miss, a cell has been guessed already append
+if it is withing bounds.
+"""
     if guess in guesses:
         print("You already gussed that.")
         return board
@@ -109,6 +126,10 @@ print_board(board)
 
 
 def main():
+"""
+The main loop of the game, cheks if the ship still has cells
+that are not hit. Also updates the board and declares a win and ends the game.
+"""
     board = build_board(grid_size)
     guesses = []
     while len(ship) > 0:
