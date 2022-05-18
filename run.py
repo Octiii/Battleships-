@@ -35,6 +35,7 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 
 while True:
     try:
+        print("First, set how big the play are will be, it will make an x by x grid.")
         grid_size = int(input("How big would you like the grid to be?"))
         break
     except ValueError:
@@ -54,11 +55,11 @@ print_board(board)
 
 
 def build_ship(size):
-"""
-This function will create a ship of random size between 2
-and the size of the grid. Will also set it a randome orientation
-and a randome locations.
-"""
+    """
+    This function will create a ship of random size between 2
+    and the size of the grid. Will also set it a randome orientation
+    and a randome locations.
+    """
     lenght_ship = random.randint(2, size)
     orientation = random.randint(0, 1)
 
@@ -80,13 +81,13 @@ and a randome locations.
 
 ship = build_ship(grid_size)
 
-
+print("Captain! Enemy ship has been detected, use the grid and coordonates to guide our gunnery.")
 def user_guess():
-"""
-Takes inputs from user, converts them to an interger, substracts one
-as to account for 0 indexing. Also cheks if numbers have been enterd
-asks again if not.
-"""
+    """
+    Takes inputs from user, converts them to an interger, substracts one
+    as to account for 0 indexing. Also cheks if numbers have been enterd
+    asks again if not.
+    """
     while True:
         try:
             row = int(input("Guess Row "))-1
@@ -98,17 +99,17 @@ asks again if not.
 
 
 def update_board(guess, board, ship, guesses):
-"""
-Definition updates the board based on the users guess and cheks wether:
-A ship is hit, a guess is a miss, a cell has been guessed already append
-if it is withing bounds.
-"""
+    """
+    Definition updates the board based on the users guess and cheks wether:
+    A ship is hit, a guess is a miss, a cell has been guessed already append
+    if it is withing bounds.
+    """
     if guess in guesses:
-        print("You already gussed that.")
+        print("We already shoot there Captain!.")
         return board
     guesses.append(guess)
     if guess in ship:
-        print("You hit my battle ship!")
+        print("Hit! A fine hit!")
         board[guess[0]][guess[1]] = "X"
         ship.remove(guess)
         return board
@@ -126,15 +127,15 @@ print_board(board)
 
 
 def main():
-"""
-The main loop of the game, cheks if the ship still has cells
-that are not hit. Also updates the board and declares a win and ends the game.
-"""
+    """
+    The main loop of the game, cheks if the ship still has cells
+    that are not hit. Also updates the board and declares a win and ends the game.
+    """
     board = build_board(grid_size)
     guesses = []
     while len(ship) > 0:
         board = update_board(user_guess(), board, ship, guesses)
         print_board(board)
-    print("You sunk my battle ship!")
+    print("Enemy ship sunk!")
     return
 main()
