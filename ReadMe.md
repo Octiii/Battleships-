@@ -10,7 +10,7 @@ Users can try and sink a battleship of random size randomly placed board of the 
 
 Here is a link to my [<ins>project</ins>](https://octisbattleship.herokuapp.com/).
 
-  ![Battleship.PNG](..\Pictures\Battleship.PNG)
+  ![Battleship.PNG](images\Battleship.PNG)
   
 
 
@@ -34,7 +34,7 @@ The player wins when he has sunk the battleship. 
 The user can set the size of the board.
 
 The user cannot see where the ship is.
-![ddddd.PNG](..\Pictures\ddddd.PNG)
+![ddddd.PNG](images\ddddd.PNG)
 
 
 
@@ -47,7 +47,7 @@ The program accepts user input.
   
 
 Input validation and error-checking is implemented. If the user inputs a coordonate that is off the grid it will let the user know and restart the round. If the user inputs letters at any time the program will ask the user for numbers again. Finally if the user inputs the same guess twice it will let the user know and ask for new coordinates again.
-![badinput.PNG](..\Pictures\badinput.PNG)
+![badinput.PNG](images\badinput.PNG)
 
 
 
